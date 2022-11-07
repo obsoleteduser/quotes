@@ -1,0 +1,34 @@
+$main-color: lightgrey;
+$nav-color: black;
+
+header {
+    width: 100vw;
+    background-color: $main-color;
+    user-select: none;
+    .brand {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 0.5rem;
+        font-weight: 900;
+    }
+
+    nav {
+        display: flex;
+        justify-content: flex-start;
+        gap: 2rem;
+        width: 100vw;
+        padding: 1rem;
+        background-color: $nav-color;
+        .link {
+            padding-left: 1rem;
+            color: white;
+            text-decoration: none;
+            user-select: none;
+        }
+    }
+}
+
+.active {
+    color: grey !important;
+    cursor: pointer;
+}
