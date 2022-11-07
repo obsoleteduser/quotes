@@ -1,32 +1,54 @@
-@mixin button-params {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.5rem;
-    background-color: dodgerblue;
-    color: white;
+@mixin btn-params {
+    padding: 1rem;
+    background-color: steelblue;
     border-radius: 3px;
-  }
-
-.home{
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(8, 1fr);
-    width: 90vw;
-    height: 60vh;
-    column-gap: 1rem;
-    p{  
-        font-size: 1.5rem;
-        font-weight: 500;
-        grid-column: 2/3
-    }
-    .big-cards{
-        @include button-params;
-        grid-column: 6/7;
-    }
-    .add-articles{
-        @include button-params;
-        grid-column: 7/8;
-    }
+    color: white;
 }
 
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    width: 100vw;
+    min-height: 100vh;
+    gap: 2rem;
+
+    p {
+        font-size: 30px;
+    }
+
+    .head-controller {
+        display: flex;
+        justify-content: space-around;
+        gap: 20rem;
+
+        .card-buttons {
+            display: flex;
+            gap: 1rem;
+
+
+            .card-btn {
+                @include btn-params
+            }
+        }
+
+    }
+
+
+    .cards {
+        display: grid;
+        min-height: 50vh;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        align-content: center;
+
+
+    }
+
+    .post-more {
+        @include btn-params;
+        width: 8rem;
+    }
+}

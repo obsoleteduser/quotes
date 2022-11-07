@@ -2,6 +2,7 @@ $main-color: lightgrey;
 $nav-color: black;
 
 header {
+    position: sticky;
     width: 100vw;
     background-color: $main-color;
     user-select: none;
