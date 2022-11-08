@@ -4,16 +4,22 @@ import { BaseLayout } from './baseLayout';
 import { Home } from './pages/Home';
 import { Users } from './pages/Users';
 import { Photos } from './pages/Photos';
+import { BrowserView, MobileView } from 'react-device-detect';
 
 
 function App() {
+
+
   return (
     <div className="App">
           <Routes>
             <Route path='/' element={<BaseLayout/>}>
-                <Route index path='/' element={<Home/>}/>
+              
+              <Route index path='/' element={<Home/>}/>
                 <Route path='/users' element={<Users/>}/>
                 <Route path='/photos' element={<Photos/>}/>
+              
+        
             </Route>
           </Routes>
     </div>
