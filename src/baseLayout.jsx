@@ -31,7 +31,8 @@ export const BaseLayout = ()=>{
         </BrowserView>
         
            <MobileView>
-                <h1 style={{textAlign: "center"}}>Sorry, we don't support mobile version right now!</h1>
+                <h1 style={{borderRadius: '3px' ,color: 'black', backgroundColor: 'gold', padding: '1.5rem', margin: '1rem', textAlign: "center"}}>Sorry, we don't support mobile version right now! 
+                <br />:(</h1>
                </MobileView>
         <Footer/>
         </div>
