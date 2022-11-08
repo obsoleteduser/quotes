@@ -14,17 +14,22 @@ export const getPosts = createAsyncThunk(
     }
 )
 
+
+
 export const postSlice = createSlice({
     name: 'posts',
     initialState,
     reducers: {
         setPost: (state, action) => {
             state.posts = action.payload
+        },
+        makePost: (state, action) =>{
+            state.posts.unshift(action.payload)
         }
     }
 })
 
 
-export const { setPost } = postSlice.actions
+export const { setPost, makePost } = postSlice.actions
 export default postSlice.reducer
 

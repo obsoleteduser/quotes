@@ -8,6 +8,7 @@ const initialState = {
     currentBody: '',
     colorActive: false,
     colorId: null,
+    cardMaker: false
 }
 
 export const cardSlice = createSlice({
@@ -34,6 +35,9 @@ export const cardSlice = createSlice({
         },
         setColorId: (state, action)=>{
             state.colorId = action.payload
+        },
+        activateCardMaker: (state, action)=>{
+            state.cardMaker = action.payload
         }
 
     }
@@ -46,6 +50,7 @@ export const { makeCardsLarger,
     setCurrentTitile,
     setColorPickerActive,
     setColor,
-    setColorId
+    setColorId,
+    activateCardMaker
 } = cardSlice.actions
 export default cardSlice.reducer

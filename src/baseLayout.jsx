@@ -7,15 +7,21 @@ import { useState } from "react"
 import { useSelector } from "react-redux"
 import { BrowserView, MobileView } from "react-device-detect"
 import { CardColor } from "./cards/cardColor"
+import { AddArticle } from "./cards/addArticle"
 
 export const BaseLayout = ()=>{
+    const cardMakerActive = useSelector(state=> state.card.cardMaker)
     const active = useSelector(state=> state.card.active)
     const colorActive = useSelector(state=>state.card.colorActive)
+    console.log(cardMakerActive)
     return(
         <div className="base-layout">
         <Header/>
         <BrowserView>
         <Outlet/>
+        {
+            cardMakerActive? <AddArticle/> : null
+        }
         {
             active? <CardView/> : null
         }
