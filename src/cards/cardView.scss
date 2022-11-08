@@ -1,0 +1,43 @@
+.active-card-view {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba($color: #000000, $alpha: 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.active-card-content {
+
+
+    width: 38rem;
+    height: 28rem;
+    background-color: white;
+    color: black;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    .article-info{
+        display: flex;
+        justify-content: space-between;
+    }
+    hr{
+        color: white;
+    }
+    .close{
+        cursor: pointer;
+        user-select: none;
+    }
+    .card-title{
+
+    }
+    .card-body{
+
+    }
+
+}
