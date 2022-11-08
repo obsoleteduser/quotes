@@ -6,9 +6,11 @@ import { CardView } from "./cards/cardView"
 import { useState } from "react"
 import { useSelector } from "react-redux"
 import { BrowserView, MobileView } from "react-device-detect"
+import { CardColor } from "./cards/cardColor"
 
 export const BaseLayout = ()=>{
     const active = useSelector(state=> state.card.active)
+    const colorActive = useSelector(state=>state.card.colorActive)
     return(
         <div className="base-layout">
         <Header/>
@@ -16,6 +18,9 @@ export const BaseLayout = ()=>{
         <Outlet/>
         {
             active? <CardView/> : null
+        }
+        {
+        colorActive?<CardColor/> : null
         }
         </BrowserView>
         

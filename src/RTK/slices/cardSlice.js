@@ -3,9 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     large: false,
     active: false,
-    color: 'default',
+    color: 'black',
     currentTitle: '',
-    currentBody: ''
+    currentBody: '',
+    colorActive: false,
+    colorId: null,
 }
 
 export const cardSlice = createSlice({
@@ -23,10 +25,27 @@ export const cardSlice = createSlice({
         },
         setCurrentBody: (state, action) => {
             state.currentBody = action.payload
+        },
+        setColorPickerActive: (state, action) => {
+            state.colorActive = action.payload
+        },
+        setColor: (state, action)=>{
+            state.color = action.payload
+        },
+        setColorId: (state, action)=>{
+            state.colorId = action.payload
         }
+
     }
 })
 
 
-export const { makeCardsLarger, makeCardActive, setCurrentBody, setCurrentTitile } = cardSlice.actions
+export const { makeCardsLarger,
+    makeCardActive,
+    setCurrentBody,
+    setCurrentTitile,
+    setColorPickerActive,
+    setColor,
+    setColorId
+} = cardSlice.actions
 export default cardSlice.reducer
