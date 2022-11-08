@@ -1,5 +1,30 @@
+@mixin ctrl-btn {
+    border: 1px solid white;
+    background-color: black;
+    padding: 3%;
+}
+
 .post-card{
+    color: white;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
     width: 20rem;
-    height: 10rem;
+    height: 15rem;
     border: 1px solid black;
+    padding: 1rem;
+    .card-title{
+        font-weight: 800;
+    }
+    .card-controller{
+        display: flex;
+        .card-view{
+            @include ctrl-btn;
+        }
+        .card-color{
+            @include ctrl-btn;
+        }
+    }
 }
