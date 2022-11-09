@@ -8,8 +8,10 @@ import { useSelector } from "react-redux"
 import { BrowserView, MobileView } from "react-device-detect"
 import { CardColor } from "./cards/cardColor"
 import { AddArticle } from "./cards/addArticle"
+import { ConfirmDelete } from "./cards/popupConfirm"
 
 export const BaseLayout = () => {
+    const deletePopUpstate = useSelector(state=>state.card.postDeletePop)
     const cardMakerActive = useSelector(state => state.card.cardMaker)
     const active = useSelector(state => state.card.active)
     const colorActive = useSelector(state => state.card.colorActive)
@@ -23,6 +25,7 @@ export const BaseLayout = () => {
                 {cardMakerActive && <AddArticle />}
                 {active && <CardView />}
                 {colorActive && <CardColor />}
+                {deletePopUpstate && <ConfirmDelete/>}
 
             </BrowserView>
 

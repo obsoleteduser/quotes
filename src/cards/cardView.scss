@@ -21,6 +21,7 @@
     padding: 2rem;
     display: flex;
     flex-direction: column;
+    border-radius: 3px;
     gap: 2rem;
     .article-info{
         display: flex;
@@ -33,10 +34,23 @@
         cursor: pointer;
         user-select: none;
     }
-    .card-title{
-
+ 
+    .post-controller{
+        display: flex;
+        gap: 1rem;
+        user-select: none;
+    .delete-post{
+        background-color: red;
+        padding: .5rem 1.5rem;
+        color: white;
+        cursor: pointer;
     }
-    .card-body{
+
+    .edit-post{
+        background-color: yellow;
+        padding: .5rem 1.5rem;
+        cursor: pointer;
+    }
 
     }
 

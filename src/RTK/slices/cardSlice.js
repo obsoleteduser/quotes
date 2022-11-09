@@ -8,7 +8,8 @@ let initialState = {
     cardColor: {},
     currentCardId: '',
     colorActive: false,
-    cardMaker: false
+    cardMaker: false,
+    postDeletePop: false
 }
 
 
@@ -39,6 +40,9 @@ export const cardSlice = createSlice({
         },
         setCardId:(state, action)=>{
             state.currentCardId = action.payload
+        },
+        activatePostDeletePop: (state, action) =>{
+            state.postDeletePop = action.payload
         }
 
     }
@@ -53,5 +57,6 @@ export const { makeCardsLarger,
     activateCardMaker,
     setCardColor,
     setCardId,
+    activatePostDeletePop
 } = cardSlice.actions
 export default cardSlice.reducer

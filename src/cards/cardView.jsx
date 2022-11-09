@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { makeCardActive } from '../RTK/slices/cardSlice'
+import { activateCardMaker, activatePostDeletePop, makeCardActive } from '../RTK/slices/cardSlice'
+import { AddArticle } from './addArticle'
 import './cardView.scss'
 
 export const CardView = () => {
@@ -25,6 +26,20 @@ export const CardView = () => {
                 <hr />
                 <div className="card-title">{title}</div>
                 <div className="card-body">{body}</div>
+                <div className="post-controller">
+                <div 
+                onClick={()=>{
+                    dispatch(makeCardActive(false))
+                    dispatch(activateCardMaker(true))
+
+                }}
+                className="edit-post">Edit</div>
+                <div 
+                onClick={()=>{
+                    dispatch(activatePostDeletePop(true))
+                }}
+                className="delete-post">Delete</div>
+                </div>
             </div>
         </div>
     )
