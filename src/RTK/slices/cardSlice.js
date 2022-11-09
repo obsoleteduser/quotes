@@ -1,15 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+let initialState = {
     large: false,
     active: false,
-    color: 'black',
     currentTitle: '',
     currentBody: '',
+    cardColor: {},
+    currentCardId: '',
     colorActive: false,
-    colorId: null,
     cardMaker: false
 }
+
 
 export const cardSlice = createSlice({
     name: 'card',
@@ -30,14 +31,14 @@ export const cardSlice = createSlice({
         setColorPickerActive: (state, action) => {
             state.colorActive = action.payload
         },
-        setColor: (state, action)=>{
-            state.color = action.payload
-        },
-        setColorId: (state, action)=>{
-            state.colorId = action.payload
-        },
         activateCardMaker: (state, action)=>{
             state.cardMaker = action.payload
+        },
+        setCardColor: (state, action)=>{
+            state.cardColor[state.currentCardId] = action.payload
+        },
+        setCardId:(state, action)=>{
+            state.currentCardId = action.payload
         }
 
     }
@@ -49,8 +50,8 @@ export const { makeCardsLarger,
     setCurrentBody,
     setCurrentTitile,
     setColorPickerActive,
-    setColor,
-    setColorId,
-    activateCardMaker
+    activateCardMaker,
+    setCardColor,
+    setCardId,
 } = cardSlice.actions
 export default cardSlice.reducer

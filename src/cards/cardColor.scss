@@ -9,6 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    user-select: none;
 }
 
 .picker-content{
@@ -22,6 +23,8 @@
     z-index: 2;
     width: 20rem;
     height: 15rem;
+    border-radius: 4px;
+    
 }
 
 .set-color{
@@ -30,3 +33,4 @@
     padding: 0.5rem 2rem;
     border-radius: 3px;
 }
+

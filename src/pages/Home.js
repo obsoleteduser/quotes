@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { PostCard } from '../cards/postCard'
 import { activateCardMaker, makeCardsLarger } from '../RTK/slices/cardSlice'
-import { getPosts } from '../RTK/slices/postSlice'
+import { getPosts, setVisiblePosts } from '../RTK/slices/postSlice'
 import './Home.scss'
 
 
@@ -15,15 +15,15 @@ export const Home = () => {
     useEffect(
         () => {
             dispatch(getPosts())
+            dispatch(setVisiblePosts(postNum))
 
         }
         , []
     )
 
     const filteredPosts = posts.filter(post => posts.indexOf(post) < postNum);
-    if (postNum % 2 !== 0 && cardLarge) setPostNum(postNum => postNum + 1)
+    if (postNum % 2 !== 0 && cardLarge) setPostNum(postNum => postNum + 1) 
     else if (postNum % 3 !== 0 && !cardLarge) setPostNum(postNum => postNum - 1)
-
 
     return (
         <div className="home">
@@ -31,10 +31,12 @@ export const Home = () => {
                 <p>Article List</p>
                 <div className="card-buttons">
                     <div onClick={() => {
-
+                        dispatch(setVisiblePosts(postNum))
                         dispatch(makeCardsLarger(!cardLarge))
                     }} className="big-cards card-btn">Make big cards</div>
-                    <div onClick={()=>{dispatch(activateCardMaker(true))}} className="add-articles card-btn">Add Articles</div>
+                    <div onClick={()=>{
+                        dispatch(setVisiblePosts(postNum))
+                        dispatch(activateCardMaker(true))}} className="add-articles card-btn">Add Articles</div>
                 </div>
 
             </div>
