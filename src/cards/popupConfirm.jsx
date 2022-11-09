@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { activatePostDeletePop, makeCardActive } from '../RTK/slices/cardSlice'
+import { activatePostDeletePop, makeCardActive, setCardColor, setCardId } from '../RTK/slices/cardSlice'
 import { deletePost, setVisiblePosts } from '../RTK/slices/postSlice'
 import './popUpConfirm.scss'
 
@@ -18,12 +18,14 @@ export const ConfirmDelete = ()=>{
                     dispatch(deletePost(Number(postID[1])))
                     dispatch(activatePostDeletePop(false))
                     dispatch(makeCardActive(false))
+                    dispatch(setCardColor('black'))
                 }}
 
                 className="delete-confirm">Delete</div>
                 <div
                 onClick={()=>{
                     dispatch(activatePostDeletePop(false))
+                    
 
                 }}
                 className="delete-cancel">Cancel</div>
