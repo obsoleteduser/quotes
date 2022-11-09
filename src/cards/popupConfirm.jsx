@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { activatePostDeletePop, makeCardActive } from '../RTK/slices/cardSlice'
-import { deletePost } from '../RTK/slices/postSlice'
+import { deletePost, setVisiblePosts } from '../RTK/slices/postSlice'
 import './popUpConfirm.scss'
 
 export const ConfirmDelete = ()=>{
     const dispatch = useDispatch()
     const postID = useSelector(state=>state.card.currentCardId)
+    const postsNum = useSelector(state=>state.post.visiblePosts)
     return(
     <div className="delete-overlay">
         <div className="delete-popup">
