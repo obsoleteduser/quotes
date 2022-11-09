@@ -21,7 +21,7 @@ export const PostCard = ({ title, body, id }) => {
                 <div onClick={() => {
                     dispatch(setCurrentBody(body))
                     dispatch(setCurrentTitile(title))
-
+                    dispatch(setCardId(`a${id}`))
                     dispatch(makeCardActive(!active))
                 }} className="card-view">View</div>
                 <div

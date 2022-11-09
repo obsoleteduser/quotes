@@ -21,7 +21,7 @@ export const BaseLayout = () => {
             <Header />
             <BrowserView>
                 <Outlet />
-
+            
                 {cardMakerActive && <AddArticle />}
                 {active && <CardView />}
                 {colorActive && <CardColor />}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { PostCard } from '../cards/postCard'
-import { activateCardMaker, makeCardsLarger } from '../RTK/slices/cardSlice'
+import { activateCardMaker, makeCardsLarger, setCardId } from '../RTK/slices/cardSlice'
 import { getPosts, setVisiblePosts } from '../RTK/slices/postSlice'
 import './Home.scss'
 
@@ -10,6 +10,7 @@ export const Home = () => {
     const cardLarge = useSelector(state => state?.card?.large)
     const [postNum, setPostNum] = useState(3)
     const posts = useSelector((state) => state?.post?.posts)
+    const activeID = useSelector(state=>state.card.currentCardId)
     const dispatch = useDispatch()
     
     useEffect(
@@ -36,7 +37,10 @@ export const Home = () => {
                     }} className="big-cards card-btn">Make big cards</div>
                     <div onClick={()=>{
                         dispatch(setVisiblePosts(postNum))
-                        dispatch(activateCardMaker(true))}} className="add-articles card-btn">Add Articles</div>
+                        dispatch(activateCardMaker(true))
+                        dispatch(setCardId(null))
+                    }}
+                         className="add-articles card-btn">Add Articles</div>
                 </div>
 
             </div>

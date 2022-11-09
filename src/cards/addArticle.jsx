@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { activateCardMaker, makeCardActive } from '../RTK/slices/cardSlice'
 import { makePost, setPost } from '../RTK/slices/postSlice'
 import './addArticle.scss'
@@ -8,6 +8,10 @@ export const AddArticle = () => {
     const dispatch = useDispatch()
     const [title, setTitle] = useState('')
     const [body, setBody] = useState('')
+    const id = useSelector(state=>state.card.currentCardId)
+    const currentTitle = useSelector(state=>state.card.currentTitle)
+    const index = useSelector(state=>state.post.visiblePosts)
+    
     
     return (
         <div onClick={
@@ -18,7 +22,7 @@ export const AddArticle = () => {
             <div
             onClick={e=>e.stopPropagation()}
              className="article-container">
-                <h1>Add new article</h1>
+                <h1>{id ? 'Edit Post' : 'Add new article'}</h1>
                 <input 
                 onChange={e=>setTitle(e.target.value)}
                 type="text" name="" id="" placeholder='Title'/>
@@ -27,7 +31,7 @@ export const AddArticle = () => {
                 name="" id="" cols="45" rows="12" placeholder='Write your article here'></textarea>
                 <div 
                 onClick={()=>{
-                    dispatch(makePost({title: title, body: body, id: uniqid()}))
+                    dispatch(makePost({title: title, body: body, id: index}))
                     dispatch(activateCardMaker(false))
                 }}
                 className="article-submit">Submit</div>

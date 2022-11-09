@@ -6,7 +6,7 @@ let initialState = {
     currentTitle: '',
     currentBody: '',
     cardColor: {},
-    currentCardId: '',
+    currentCardId: null,
     colorActive: false,
     cardMaker: false,
     postDeletePop: false

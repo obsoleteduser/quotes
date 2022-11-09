@@ -13,11 +13,12 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 1rem;
-    width: 20rem;
-    height: 15rem;
+    width: 22rem;
+    height: 18rem;
     border: 1px solid black;
     border-radius: 3px;
     padding: 1rem;
+    overflow: hidden;
     .card-title{
         font-weight: 800;
     }
