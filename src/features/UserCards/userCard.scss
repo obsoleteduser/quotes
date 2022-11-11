@@ -1,0 +1,40 @@
+
+.user-card{
+    border: 1px solid black;
+    width: 18rem;
+    height: 12rem;
+    border-radius: 3px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding-left: 1rem;
+    &__content{
+        display: flex;
+        flex-direction: column;
+        color: white;
+    }
+    @mixin button-style {
+        color: white;
+        border: 1px solid white;
+        padding: .5rem;
+        user-select: none;
+        cursor: pointer;
+    }
+    &__options{
+        display: flex;
+    }
+    &__view{
+        @include button-style()
+    }
+    &__color{
+        @include button-style()      
+    }
+}
+
+
+.user-card-big{
+    width: 23rem;
+    height: 16rem;
+}

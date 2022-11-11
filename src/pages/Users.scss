@@ -1,0 +1,41 @@
+.page-users{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    margin: 1.5rem;
+    @mixin post-ctrl {
+        padding: .5rem;
+        background-color: dodgerblue;
+        color: white;
+        cursor: pointer;
+        user-select: none;
+    }
+    &__controller{
+        display: flex;
+        gap: 1rem;
+        justify-content: flex-end;
+        width: 90vw;
+        user-select: none;
+    }
+    &__big-cards{
+        @include post-ctrl
+    }
+    &__add-user{
+        @include post-ctrl
+    }
+    &__more-user{
+        @include post-ctrl;
+    }
+    &__card-board{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+}
+
+
+.make-two-collumn{
+    grid-template-columns: repeat(2, 1fr);
+}
