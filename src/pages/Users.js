@@ -29,10 +29,8 @@ export const Users = () =>{
                     dispatch(setCardBig(!bigCards))  
                 }}
                 className="page-users__big-cards">Make big cards</div>
-                <div 
                
-                className="page-users__add-user">Add new user</div>
-            </div>
+           </div>
             <div 
             style={bigCards ?{gridTemplateColumns: 'repeat(2, 1fr)'}: null}
             className="page-users__card-board">
@@ -40,7 +38,7 @@ export const Users = () =>{
             {
                 users.filter(user => users.indexOf(user) < displayedUsers)
                 .map(user => (
-                    <UserCard key={`user${user.id}`} email={user.email} name={user.name} id={user.id} phone={user.phone}/>
+                    <UserCard key={user.id} email={user.email} name={user.name} id={user.id} phone={user.phone}/>
                 )
                 )
             }

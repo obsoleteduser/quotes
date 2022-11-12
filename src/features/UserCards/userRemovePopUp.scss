@@ -1,0 +1,50 @@
+.user-remove-overlay{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($color: #000000, $alpha: .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    .user-remove-modal{
+        padding: 2rem;
+        background-color: white;
+        width: 22rem;
+        height: 15rem;
+        border-radius: 3px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+      
+
+        .user-remove-controller{
+            display: flex;
+            gap: 1rem;
+            user-select: none;
+        }
+
+
+        .user-remove-confirm{
+            padding: .5rem 1rem;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+        }
+        .user-remove-cancel{
+            padding: .5rem 1rem;
+            background-color: green;
+            color: white;
+            cursor: pointer;
+        }
+
+
+    }
+
+}

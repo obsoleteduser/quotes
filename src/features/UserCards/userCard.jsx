@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { setTargetedId, setUserColorModal } from '../../RTK/slices/UsersSlice/userCardSlice'
+import { setTargetedId, setUserColorModal, setUserView } from '../../RTK/slices/UsersSlice/userCardSlice'
 import './userCard.scss'
 
 export const UserCard = ({name, email, id, phone}) => {
@@ -17,7 +17,12 @@ export const UserCard = ({name, email, id, phone}) => {
                 <div className="user-card-phone">{phone}</div>
             </div>
             <div className="user-card__options">
-                <div className="user-card__view">View</div>
+                <div 
+                onClick={()=>{
+                   dispatch(setTargetedId(id)) 
+                   dispatch(setUserView(true))
+                }}
+                className="user-card__view">View</div>
                 <div
                 onClick={()=>{
                     dispatch(setTargetedId(id))
