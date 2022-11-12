@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { UserCard } from "../features/UserCards/userCard"
+import { UserColor } from "../features/UserCards/userColor"
 import { cardSlice } from "../RTK/slices/cardSlice"
 import { getUsers, setCardBig, setDisplayedUsers } from "../RTK/slices/UsersSlice/userCardSlice"
 import './Users.scss'
@@ -39,11 +40,11 @@ export const Users = () =>{
             {
                 users.filter(user => users.indexOf(user) < displayedUsers)
                 .map(user => (
-                    <UserCard key={user.id} email={user.email} name={user.name} id={user.id} phone={user.phone}/>
+                    <UserCard key={`user${user.id}`} email={user.email} name={user.name} id={user.id} phone={user.phone}/>
                 )
                 )
             }
-
+           
             </div>
             <div
              onClick={()=>{

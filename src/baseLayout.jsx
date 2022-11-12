@@ -9,12 +9,14 @@ import { BrowserView, MobileView } from "react-device-detect"
 import { CardColor } from "./cards/cardColor"
 import { AddArticle } from "./cards/addArticle"
 import { ConfirmDelete } from "./cards/popupConfirm"
+import { UserColor } from "./features/UserCards/userColor"
 
 export const BaseLayout = () => {
     const deletePopUpstate = useSelector(state=>state.card.postDeletePop)
     const cardMakerActive = useSelector(state => state.card.cardMaker)
     const active = useSelector(state => state.card.active)
     const colorActive = useSelector(state => state.card.colorActive)
+    const userColorModal = useSelector(state=> state.user.colorModalActive)
     console.log(cardMakerActive)
     return (
         <div className="base-layout">
@@ -26,6 +28,7 @@ export const BaseLayout = () => {
                 {active && <CardView />}
                 {colorActive && <CardColor />}
                 {deletePopUpstate && <ConfirmDelete/>}
+                {userColorModal && <UserColor/>}
 
             </BrowserView>
 

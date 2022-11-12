@@ -18,7 +18,9 @@ export const ConfirmDelete = ()=>{
                     dispatch(deletePost(Number(postID[1])))
                     dispatch(activatePostDeletePop(false))
                     dispatch(makeCardActive(false))
+                    dispatch(setCardId(null))
                     dispatch(setCardColor('black'))
+                    
                 }}
 
                 className="delete-confirm">Delete</div>

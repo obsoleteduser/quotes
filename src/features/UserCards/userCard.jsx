@@ -1,10 +1,16 @@
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { setTargetedId, setUserColorModal } from '../../RTK/slices/UsersSlice/userCardSlice'
 import './userCard.scss'
 
 export const UserCard = ({name, email, id, phone}) => {
+    const dispatch = useDispatch()
     const bigCards = useSelector(state => state.user.bigCards)
+    const userCardColors = useSelector(state=> state.user.userCardColors)
+    console.log(userCardColors[id])
     return (
-        <div className={bigCards ? 'user-card user-card-big': 'user-card'}>
+        <div
+        style={{backgroundColor: userCardColors[id]}}
+        className={bigCards ? 'user-card user-card-big': 'user-card'}>
             <div className="user-card__content">
                 <div className="user-card-name">{name}</div>
                 <div className="user-card-email">{email}</div>
@@ -12,7 +18,12 @@ export const UserCard = ({name, email, id, phone}) => {
             </div>
             <div className="user-card__options">
                 <div className="user-card__view">View</div>
-                <div className="user-card__color">Change color</div>
+                <div
+                onClick={()=>{
+                    dispatch(setTargetedId(id))
+                    dispatch(setUserColorModal(true))
+                }}
+                className="user-card__color">Change color</div>
             </div>
 
         </div>
