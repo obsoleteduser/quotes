@@ -1,5 +1,6 @@
  import { configureStore } from "@reduxjs/toolkit";
 import cardSlice from "../slices/cardSlice";
+import  setImage from "../slices/PhotoSlice/photoSlice";
 import  postSlice  from "../slices/postSlice";
 import userCardSlice from "../slices/UsersSlice/userCardSlice";
 
@@ -8,6 +9,7 @@ import userCardSlice from "../slices/UsersSlice/userCardSlice";
     reducer: {
         post: postSlice,
         card: cardSlice,
-        user: userCardSlice
+        user: userCardSlice,
+        image: setImage,
     }
  })

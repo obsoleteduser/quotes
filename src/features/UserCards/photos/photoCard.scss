@@ -1,0 +1,13 @@
+
+.photo-card{
+    border: 1px solid black;
+    width: 18rem;
+    height: 12rem;
+    border-radius: 3px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding-left: 1rem;
+}

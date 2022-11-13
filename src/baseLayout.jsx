@@ -12,6 +12,7 @@ import { ConfirmDelete } from "./cards/popupConfirm"
 import { UserColor } from "./features/UserCards/userColor"
 import { UserView } from "./features/UserCards/userView"
 import { UserRemovePopUp } from "./features/UserCards/userRemovePopUp"
+import { EditUser } from "./features/UserCards/editUser"
 
 export const BaseLayout = () => {
     const deletePopUpstate = useSelector(state=>state.card.postDeletePop)
@@ -21,6 +22,8 @@ export const BaseLayout = () => {
     const userColorModal = useSelector(state=> state.user.colorModalActive)
     const userView = useSelector(state=>state.user.userViewActive)
     const userRemovePopUp = useSelector(state => state.user.userRemovePopUpActive)
+    const userEditModal = useSelector(state=> state.user.editUserModalActive)
+
     console.log(cardMakerActive)
     return (
         <div className="base-layout">
@@ -35,6 +38,7 @@ export const BaseLayout = () => {
                 {userColorModal && <UserColor/>}
                 {userView && <UserView/>}
                 {userRemovePopUp && <UserRemovePopUp/>}
+                {userEditModal && <EditUser/>}
 
             </BrowserView>
 

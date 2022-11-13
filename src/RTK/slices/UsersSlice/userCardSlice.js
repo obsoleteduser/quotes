@@ -9,7 +9,8 @@ const initialState = {
     users: [],
     colorModalActive: false,
     userViewActive: false,
-    userRemovePopUpActive: false
+    userRemovePopUpActive: false,
+    editUserModalActive: false,
 }
 
 
@@ -63,8 +64,11 @@ export const userSlice = createSlice({
             targetuser.website = action.payload.website
             targetuser.company = action.payload.company
             state.users = state.users.filter(user => user.id !== state.targetCardId)
-            state.users.splice(state.targetCardId+1, 0, targetuser)
+            state.users.splice(state.targetCardId-1, 0, targetuser)
             
+        },
+        editUserModal: (state, action)=>{
+            state.editUserModalActive = action.payload
         }
     }
 })
@@ -79,6 +83,7 @@ export const { setUsers,
     setUserView,
     removeUser,
     setUserRemovePopUp,
-    editUserData
+    editUserData,
+    editUserModal,
 } = userSlice.actions
 export default userSlice.reducer

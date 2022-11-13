@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { setUserRemovePopUp, setUserView } from '../../RTK/slices/UsersSlice/userCardSlice'
+import { editUserModal, setUserRemovePopUp, setUserView } from '../../RTK/slices/UsersSlice/userCardSlice'
 import './userView.scss'
 
 export const UserView = ()=>{
@@ -26,7 +26,11 @@ export const UserView = ()=>{
                     <div className="user-website"><strong>Website: </strong>{website}</div>
                 </div>
                 <div className="user-info-controller">
-                    <div className="user-info-edit">Edit</div>
+                    <div
+                    onClick={()=>{
+                        dispatch(editUserModal(true))
+                    }}
+                    className="user-info-edit">Edit</div>
                     <div
                     onClick={()=>{
                         dispatch(setUserRemovePopUp(true))                        
